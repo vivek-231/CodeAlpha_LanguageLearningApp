@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Learn English → Telugu</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>English → Telugu</h1>
+      <nav>
+        <button id="tabFlash">Flashcards</button>
+        <button id="tabDaily">Daily Lesson</button>
+        <button id="tabQuiz">Quiz</button>
+        <button id="tabProgress">Progress</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- FLASHCARDS -->
+      <section id="flashSection" class="panel">
+        <div class="card" id="card">
+          <div class="card-inner" id="cardInner">
+            <div class="card-front" id="frontText">English</div>
+            <div class="card-back" id="backText">Telugu</div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="prev">Prev</button>
+          <button id="speakBtn">🔊 Pronounce</button>
+          <button id="flipBtn">Flip</button>
+          <button id="next">Next</button>
+        </div>
+
+        <div class="meta">
+          <div id="transliteration"></div>
+          <button id="markKnown">Mark Known ✅</button>
+        </div>
+      </section>
+
+      <!-- DAILY LESSON -->
+      <section id="dailySection" class="panel hidden">
+        <h2>Daily Lesson</h2>
+        <p id="dailyNote">Learn 1 new word every day.</p>
+        <div class="card small" id="dailyCard">
+          <div class="card-inner" id="dailyInner">
+            <div class="card-front" id="dailyFront">English</div>
+            <div class="card-back" id="dailyBack">Telugu</div>
+          </div>
+        </div>
+        <div class="daily-controls">
+          <button id="dailySpeak">🔊 Pronounce</button>
+          <button id="dailyFlip">Flip</button>
+          <button id="dailyMarkKnown">Mark Known</button>
+        </div>
+      </section>
+
+      <!-- QUIZ -->
+      <section id="quizSection" class="panel hidden">
+        <h2>Quiz — Test Yourself</h2>
+        <div id="quizArea">
+          <div id="questionText"></div>
+          <div id="choices"></div>
+          <div id="quizControls">
+            <button id="nextQuestion" class="hidden">Next Q</button>
+            <button id="startQuiz">Start Quiz</button>
+          </div>
+        </div>
+        <div id="quizResult" class="hidden"></div>
+      </section>
+
+      <!-- PROGRESS -->
+      <section id="progressSection" class="panel hidden">
+        <h2>Your Progress</h2>
+        <p>Known words: <span id="knownCount">0</span> / <span id="totalCount">0</span></p>
+        <div id="knownList"></div>
+        <h3>Quiz History</h3>
+        <ul id="quizHistory"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <small>Data saved locally in your browser. Pronunciation uses browser voices (may vary by device).</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').catch(console.error);
+    }
+  </script>
+</body>
+</html>
